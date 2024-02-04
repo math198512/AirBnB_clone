@@ -29,13 +29,13 @@ class BaseModel:
 
         self.updated_at = datetime.utcnow()
 
-    def to_dict():
+    def to_dict(self):
         """
         """
 
         self_dict = self.__dict__.copy()
-        self_dict["__class__"] = slef.__class__.__name__
+        self_dict["__class__"] = self.__class__.__name__
         self_dict["created_at"] = self.created_at.isoformat()
         self_dict["updated_at"] = self.updated_at.isoformat()
 
-        return (slef_dict)
+        return (self_dict)
