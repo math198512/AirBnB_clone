@@ -25,6 +25,7 @@ class BaseModel:
 
     def __str__(self):
         """
+        string representation
         """
 
         return '[{}] ({}) {}'.format(self.__class__.__name__,
