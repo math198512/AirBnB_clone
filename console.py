@@ -7,6 +7,12 @@ from models.engine.file_storage import FileStorage
 
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
+    prompt = '(hbnb) '
+
+
+    def do_prompt(self, line):
+        "Change the interactive prompt"
+        self.prompt = line + ': '
 
     def do_quit(self, line):
         """Quit command to exit the program"""
