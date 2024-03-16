@@ -9,11 +9,11 @@ class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
 
     def do_quit(self, line):
-    """Quit command to exit the program"""
+        """Quit command to exit the program"""
         exit()
 
     def do_EOF(self, line):
-    """EOF command to exit the program"""
+        """EOF command to exit the program"""
         return True
 
 if __name__ == '__main__':
