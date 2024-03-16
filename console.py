@@ -20,7 +20,19 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """EOF command to exit the program"""
-        return True
+        exit()
+
+    def emptyline(self, line):
+        """Ignore empty inputs"""
+        pass
+
+    def help_quit(self):
+        """ Prints the help documentation for quit  """
+        print("Exits the program with formatting")
+
+    def help_EOF(self):
+        """ Prints the help documentation for EOF """
+        print("Exits the program without formatting")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
