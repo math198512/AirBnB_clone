@@ -5,6 +5,7 @@ This module defines all common attributes/methods for other classes
 
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -38,6 +39,8 @@ class BaseModel:
         """
 
         self.updated_at = datetime.utcnow()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """
