@@ -54,6 +54,6 @@ class FileStorage:
                 class_name, obj_id = key.split('.')
                 cls = eval(class_name)
                 inst = cls(**values)
-                FileStorage.__objects__[key] = inst
+                FileStorage.__objects[key] = inst
         except Exception:
             pass
