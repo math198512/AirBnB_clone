@@ -47,9 +47,13 @@ class FileStorage:
         """
 
         try:
-            with open(self.__file_path, 'r') as f:
-                a_dict = json.load(f)
-            for key in a_dict:
-                self.__objects[key] = class_list[a_dict[key]["__class__"]](**a_dict[key])
-        except:
+            with open(FileStorage.__file_path, mode="r",
+                    encoding="UTF-8") as js_file:
+                dict_objs = json.load(js_file)
+            for key, value in dict_objs.items():
+                class_name, obj_id = key.split('.')
+                cls = eval(class_name)
+                inst = cls(**values)
+                FileStorage.__objects__[key] = inst
+        except Exception:
             pass
