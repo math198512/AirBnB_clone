@@ -8,6 +8,7 @@ import os
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -17,7 +18,7 @@ class FileStorage:
         returns a dictionary containing every object
         """
         return self.__objects
-    
+
     def new(self, obj):
         """
         """
@@ -42,7 +43,7 @@ class FileStorage:
 
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, mode="r",
-                    encoding="UTF-8") as js_file:
+                      encoding="UTF-8") as js_file:
                 try:
                     dict_objs = json.load(js_file)
                     for key, value in dict_objs.items():
