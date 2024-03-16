@@ -11,17 +11,11 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def all(self, cls=None):
+    def all(self):
         """
         returns a dictionary containing every object
         """
-        if (not cls):
-            return self.__objects
-        result = {}
-        for key in self.__objects.keys():
-            if (key.split(".")[0] == cls.__name__):
-                result.update({key: self.__objects[key]})
-        return result
+        return self.__objects
     
     def new(self, obj):
         """
