@@ -45,15 +45,12 @@ class FileStorage:
     def reload(self):
         """
         """
-
+        
         try:
-            with open(FileStorage.__file_path, mode="r",
-                    encoding="UTF-8") as js_file:
-                dict_objs = json.load(js_file)
-            for key, value in dict_objs.items():
-                class_name, obj_id = key.split('.')
-                cls = eval(class_name)
-                inst = cls(**values)
-                FileStorage.__objects[key] = inst
-        except Exception:
+            with open(self.__file_path, "r") as json_file:
+                temp = json.load(json_file)
+            for id, dict in temp.items():
+                temp_instance = models.dummy_classes[dict["__class__"]](**dict)
+                self.__objects[id] = temp_instance
+        except:
             pass
