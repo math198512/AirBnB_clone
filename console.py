@@ -7,7 +7,7 @@ from models.engine.file_storage import FileStorage
 
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
-    prompt = '(hbnb) '
+    prompt = '(hbnb)'
 
 
     def do_prompt(self, line):
@@ -25,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Ignore empty inputs"""
-        return cmd.Cmd.emptyline(self)
+        pass
 
     def help_quit(self):
         """ Prints the help documentation for quit  """
