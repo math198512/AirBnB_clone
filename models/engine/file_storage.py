@@ -46,15 +46,14 @@ class FileStorage:
         """
         """
 
-        if os.path.isfile(FileStorage.__file_path):
+        try:
             with open(FileStorage.__file_path, mode="r",
                     encoding="UTF-8") as js_file:
-                try:
-                    dict_objs = json.load(js_file)
-                    for key, value in dict_objs.items():
-                        class_name, obj_id = key.split('.')
-                        cls = eval(class_name)
-                        inst = cls(**values)
-                        FileStorage.__objects__[key] = inst
-                except Exception:
-                    pass
+                dict_objs = json.load(js_file)
+            for key, value in dict_objs.items():
+                class_name, obj_id = key.split('.')
+                cls = eval(class_name)
+                inst = cls(**values)
+                FileStorage.__objects__[key] = inst
+        except Exception:
+            pass
