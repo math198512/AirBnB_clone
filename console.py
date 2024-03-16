@@ -20,7 +20,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """EOF command to exit the program"""
-        exit()
+        print()
+        return True
 
     def emptyline(self, line):
         """Ignore empty inputs"""
