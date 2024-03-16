@@ -48,7 +48,7 @@ class FileStorage:
                     for key, value in dict_objs.items():
                         class_name, obj_id = key.split('.')
                         cls = eval(class_name)
-                        inst = cls(**values)
-                        FileStorage.__objects__[key] = inst
+                        inst = cls(**value)
+                        FileStorage.__objects[key] = inst
                 except Exception:
                     pass
