@@ -23,9 +23,9 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def emptyline(self, line):
+    def emptyline(self):
         """Ignore empty inputs"""
-        pass
+        return cmd.Cmd.emptyline(self)
 
     def help_quit(self):
         """ Prints the help documentation for quit  """
