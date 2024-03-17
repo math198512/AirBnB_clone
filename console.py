@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Defines the HBnB console."""
 import cmd
-from models import storage
-from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
+from models.__init__ import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -34,6 +34,17 @@ class HBNBCommand(cmd.Cmd):
     def help_EOF(self):
         """ Prints the help documentation for EOF """
         print("Exits the program without formatting")
+
+    def do_create(self, args):
+        """"Creates a new instance of BaseModel"""
+        if not args:
+            print("** class name missing **")
+            return
+        elif args != "BaseModel":
+            print("** class doesn't exist")
+            return
+        new_instance = BaseModel()
+        print(new_instance.id)
 
 
 if __name__ == '__main__':
