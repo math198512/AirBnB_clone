@@ -77,6 +77,8 @@ class HBNBCommand(cmd.Cmd):
         elif not args_new[1]:
             print("** instance id missing **")
         else:
+            objects = storage.all()
+
             key = '{}.{}'.format(args_new[0], args_new[1])
             if key in objects:
                 del objects[key]
