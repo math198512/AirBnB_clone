@@ -127,14 +127,14 @@ class HBNBCommand(cmd.Cmd):
                 attr_name = args_new[2]
                 attr_value = args_new[3]
 
-            try:
-                attr_value = eval(attr_value)
-            except Exception:
-                pass
+                try:
+                    attr_value = eval(attr_value)
+                except Exception:
+                    pass
 
-            setattr(obj, attr_name, attr_value)
+                setattr(obj, attr_name, attr_value)
 
-            obj.save()
+                obj.save()
 
 
 if __name__ == '__main__':
