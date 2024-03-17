@@ -99,6 +99,8 @@ class HBNBCommand(cmd.Cmd):
                     print(objects[key])
                 else:
                     print("** no instance found **")
+        else:
+            print("** class doesn't exist **")
 
 
 if __name__ == '__main__':
