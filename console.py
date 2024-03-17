@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """ Prints the string representation of an instance """
-        args_new = args.split()
+        args_new = args.split(' ')
         if not args_new[0]:
             print("** class name missing **")
         elif args_new[0] != "BaseModel":
