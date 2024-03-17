@@ -52,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """ Prints the string representation of an instance """
-        args_new = args.split(' ')
+        args_new = args.split()
         if not args_new[0]:
             print("** class name missing **")
         elif args_new[0] != "BaseModel":
@@ -67,6 +67,11 @@ class HBNBCommand(cmd.Cmd):
                 print(objects[key])
             else:
                 print("** no instance found **")
+
+    def do_destroy(self, args):
+        """Deletes an instance based on the class name and id"""
+        pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
