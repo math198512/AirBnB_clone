@@ -3,13 +3,15 @@
 import cmd
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+from models.base_model import User
 from models.__init__ import storage
 
 
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
     prompt = '(hbnb)'
-
+    classes = ["BaseModel", "User"]
+    
     def do_prompt(self, line):
         "Change the interactive prompt"
         self.prompt = line + ': '
@@ -42,11 +44,11 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        elif args_new[0] != "BaseModel":
+        elif args_new[0] not in self.classes:
             print("** class doesn't exist **")
             return
-        new_instance = BaseModel()
-        new_instance.save()
+        new_instance = eval(f"{args_new[0]}.()")
+        storage.save()
         print(new_instance.id)
 
     def do_show(self, args):
