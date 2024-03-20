@@ -7,7 +7,7 @@ deserializes JSON file to instances
 import os
 import json
 from models.base_model import BaseModel
-from models.base_model import User
+from models.user import User
 
 class FileStorage:
     __file_path = "file.json"
