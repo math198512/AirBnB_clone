@@ -3,7 +3,7 @@
 import cmd
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
-from models.base_model import User
+from models.user import User
 from models.__init__ import storage
 
 
