@@ -112,9 +112,9 @@ class HBNBCommand(cmd.Cmd):
         args_new = args.split(' ')
         if not args_new[0]:
             print("** class name missing **")
-        elif args_new[0] != "BaseModel":
+        elif args_new[0] not in classes:
             print("** class doesn't exist **")
-        elif len(args_new) == 1 and args_new[0] == "BaseModel":
+        elif len(args_new) == 1 and args_new[0] in classes:
             print("** instance id missing **")
         else:
             objects = storage.all()
