@@ -92,15 +92,13 @@ class HBNBCommand(cmd.Cmd):
         """ Prints all string representation of all instances based
         or not on the class name """
         args_new = args.split(' ')
-        if not args_new[0] or args_new[0] == "BaseModel":
+        if not args_new[0] or args_new[0] == "BaseModel" or args_new[0] == "User":
             objects = storage.all()
 
             # key = '{}.{}'.format(args_new[0], args_new[1])
-            for key in objects:
-                if key in objects:
-                    print(objects[key])
-                else:
-                    print("** no instance found **")
+            nl = [str(obj) for key, obj in storage.all().items()
+                                        if type(obj).__name__ == args_new[0]]
+            print(nl)
         else:
             print("** class doesn't exist **")
 
