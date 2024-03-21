@@ -96,9 +96,13 @@ class HBNBCommand(cmd.Cmd):
             objects = storage.all()
 
             # key = '{}.{}'.format(args_new[0], args_new[1])
-            nl = [str(obj) for key, obj in storage.all().items()
+            if not args_new[0]:
+                new_list = [str(obj) for key, obj in storage.all().items()]
+                print(new_list)
+            elif args_new[0] == "BaseModel" or args_new[0] == "User":
+                obj_list = [str(obj) for key, obj in storage.all().items()
                                         if type(obj).__name__ == args_new[0]]
-            print(nl)
+                print(obj_list)
         else:
             print("** class doesn't exist **")
 
