@@ -15,7 +15,8 @@ from models.__init__ import storage
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
     prompt = '(hbnb)'
-    classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"]
+    classes = ["BaseModel", "User", "Place", "State", "City",
+               "Amenity", "Review"]
 
     def do_prompt(self, line):
         "Change the interactive prompt"
@@ -61,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
         args_new = args.split(' ')
         if not args_new[0]:
             print("** class name missing **")
-        elif args_new[0] != "BaseModel" and args_new[0] != "User":
+        elif args_new[0] not in self.classes:
             print("** class doesn't exist **")
         elif len(args_new) < 2:
             print("** instance id missing **")
@@ -104,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
             if not args_new[0]:
                 new_list = [str(obj) for key, obj in storage.all().items()]
                 print(new_list)
-            elif args_new[0] == "BaseModel" or args_new[0] == "User":
+            elif args_new[0] in self.classes:
                 obj_list = [str(obj) for key, obj in storage.all().items()
                             if type(obj).__name__ == args_new[0]]
                 print(obj_list)
