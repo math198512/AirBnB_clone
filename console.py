@@ -11,7 +11,7 @@ class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
     prompt = '(hbnb)'
     classes = ["BaseModel", "User"]
-    
+
     def do_prompt(self, line):
         "Change the interactive prompt"
         self.prompt = line + ': '
@@ -92,7 +92,7 @@ class HBNBCommand(cmd.Cmd):
         """ Prints all string representation of all instances based
         or not on the class name """
         args_new = args.split(' ')
-        if not args_new[0] or args_new[0] == "BaseModel" or args_new[0] == "User":
+        if not args_new[0] or args_new[0] in self.classes:
             objects = storage.all()
 
             # key = '{}.{}'.format(args_new[0], args_new[1])
@@ -101,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
                 print(new_list)
             elif args_new[0] == "BaseModel" or args_new[0] == "User":
                 obj_list = [str(obj) for key, obj in storage.all().items()
-                                        if type(obj).__name__ == args_new[0]]
+                            if type(obj).__name__ == args_new[0]]
                 print(obj_list)
         else:
             print("** class doesn't exist **")
