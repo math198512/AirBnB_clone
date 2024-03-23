@@ -15,7 +15,7 @@ from models.__init__ import storage
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
     prompt = '(hbnb)'
-    classes = ["BaseModel", "User"]
+    classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"]
 
     def do_prompt(self, line):
         "Change the interactive prompt"
