@@ -10,4 +10,3 @@ class TestBaseModel(unittest.TestCase):
 
         initial_updated_at = my_model.updated_at
         current_updated_at = my_model.save()
-        self.
